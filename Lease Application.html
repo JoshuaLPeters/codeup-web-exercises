@@ -19,7 +19,7 @@
 </head>
     <body>
         <form method="POST" action="https://request-inspector.glitch.me/">
-            <label style="margin-left: 50em" for="recieved-on">Received on</label>
+            <label style="margin-left: 48em" for="recieved-on">Received on</label>
             <input name="recieved-on" id="recieved-on" placeholder="Enter date">
             <label for="received-time">(date) at</label>
             <input name="received-time" id="received-time" placeholder="Enter time">
@@ -36,20 +36,22 @@
             <label for="property-address">Property Address:</label>
             <input name="property-adress" id="property-address" placeholder="Enter your address here (street, city, state, zip)">
             <br>
-            <label for="move-in-date">Anticipated: Move-in Date:</label>
+            <label style="margin-left: 2em" for="move-in-date">Anticipated: Move-in Date:</label>
             <input name="move-in-date" id="move-in-date" placeholder="Enter move-in Date">
             <label for="monthly-rent">Monthly Rent: $</label>
             <input name="monthly-rent" id="monthly-rent" placeholder="Enter preferred rent">
             <label for="security-deposit">Security Deposit: $</label>
             <input name="security-deposit" id="security-deposit" placeholder="Enter security deposit">
             <br>
-            <p>Applicant was referred to Landlord by:</p>
-            <input type="radio" name="referred-question" value="real-estate-agent" id="real-estate-agent">
+            <br>
+            <label for="agent-name">Applicant was referred to Landlord by:</label>
+            <br>
+            <input style="margin-left: 1em" type="radio" name="referred-question" value="real-estate-agent" id="real-estate-agent">
             <label for="real-estate-agent">Real estate agent</label>
             <input name="agent-name" id="agent-name" placeholder="Enter Real estate agent name">
             <input name="agent-phone" id="agent-phone" placeholder="Enter agents phone #">
             <br>
-            <input type="radio" name="referred-question" value="newspaper" id="newspaper">
+            <input style="margin-left: 1em" type="radio" name="referred-question" value="newspaper" id="newspaper">
             <label for="newspaper">Newspaper</label>
             <input type="radio" name="referred-question" value="sign" id="sign">
             <label for="sign">Sign</label>
@@ -59,6 +61,7 @@
             <label for="other">Other</label>
             <input name="other-referral" id="other-referral" placeholder="How did you find us?">
             <br>
+            <br>
             <label for="applicants-name">Applicant's name (first, middle, last)</label>
             <input name="applicants-name" id="applicants-name" placeholder="Your name">
             <br>
@@ -67,10 +70,61 @@
             <label for="yes">Yes</label>
             <input type="radio" name="applicant-question" value="no" id="no">
             <label for="no">No</label>
-            <label style="margin-left: 4em"><em><strong>If yes, co-applicant must submit a separate application.</strong></em></label>
+            <label style="margin-left: 2em"><em><strong>If yes, co-applicant must submit a separate application.</strong></em></label>
             <br>
             <label style="margin-left: 2em" for="former-last-name">Applicant's former last name (maiden or married)</label>
             <input name="former-last-name" id="former-last-name" placeholder="Enter former last name">
+            <br>
+            <label for="email">Email</label>
+            <input name="email" id="email" placeholder="Enter email here">
+            <label for="home-phone">Home Phone</label>
+            <input name="home-phone" id="home-phone" placeholder="Enter phone number">
+            <br>
+            <label for="work-phone">Work Phone</label>
+            <input name="work-phone" id="work-phone" placeholder="Enter work phone">
+            <label for="mobile-pager">Mobile/Pager</label>
+            <input name="mobile-pager" id="mobile-pager" placeholder="Enter mobile/pager">
+            <br>
+            <label for="social-security">Soc. Sec. No.</label>
+            <input name="social-security" id="social-security" placeholder="Enter your social">
+            <label for="drivers-license">Driver License No.</label>
+            <input name="drivers-license" id="drivers-license" placeholder="Enter your license #">
+            <label for="in">in</label>
+            <input name="in" id="in" placeholder="Enter state">
+            <label for="in">(state)</label>
+            <br>
+            <label for="date-of-birth">Date of Birth</label>
+            <input name="date-of-birth" id="date-of-birth" placeholder="Enter your DOB">
+            <label for="height">Height</label>
+            <input name="height" id="height" placeholder="Enter your height">
+            <label for="weight">Weight</label>
+            <input name="weight" id="weight" placeholder="Enter your weight">
+            <label for="eye-color">Eye Color</label>
+            <input name="eye-color" id="eye-color" placeholder="Enter your eye color">
+            <br>
+            <label for="hair-color">Hair Color</label>
+            <input name="hair-color" id="hair-color" placeholder="Enter your hair color">
+            <label for="marital-status">Marital Status</label>
+            <input name="marital-status" id="marital-status" placeholder="Enter marital status">
+            <label for="citizenship">Citizenship</label>
+            <input name="citizenship" id="citizenship" placeholder="Enter your citizenship">
+            <label for="citizenship">(country)</label>
+            <br>
+            <br>
+            <label for="emergency-contact">Emergency Contact: Name:</label>
+            <input name="emergency-contact" id="emergency-contact" placeholder="Emergency contact">
+            <br>
+            <label style="margin-left: 8.5em"  for="emergency-address">Address:</label>
+            <input name="emergency-address" id="emergency-address" placeholder="Enter home address">
+            <br>
+            <label style="margin-left: 8.5em"  for="emergency-phone">Phone:</label>
+            <input name="emergency-phone" id="emergency-phone" placeholder="Enter home phone">
+            <label for="emergency-email">E-mail:</label>
+            <input name="emergency-email" id="emergency-email" placeholder="Enter email">
+            <br>
+            <br>
+
+
         </form>
     </body>
 </html>
