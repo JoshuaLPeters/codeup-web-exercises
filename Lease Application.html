@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Residential Lease Application</title>
+    <style>
+        .line {
+            background-color: black;
+            height: 4px;
+        }
+        .taor {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+    </style>
+
+</head>
+    <body>
+        <form method="POST" action="https://request-inspector.glitch.me/">
+            <label style="margin-left: 50em" for="recieved-on">Received on</label>
+            <input name="recieved-on" id="recieved-on" placeholder="Enter date">
+            <label for="received-time">(date) at</label>
+            <input name="received-time" id="received-time" placeholder="Enter time">
+            <label for="received-time">(time)</label>
+            <img src="img/taor-logo.png" class="taor" width="50" height="50">
+            <br>
+            <h3 align="center">TEXAS ASSOCIATION OF REALTORS</h3>
+            <h1 align="center">RESIDENTIAL LEASE APPLICATION</h1>
+            <h6 align="center">USE OF THIS FORM BY PERSONS WHO ARE NOT MEMBERS OF THE TEXAS ASSOCIATION OF REALTORS&#9415;</h6>
+            <h6 align="center"><strong>&copy;Texas Association of REALTORS&#9415;, Inc. 2007</strong></h6>
+            <h2 align="center"><em><strong>Each occupant and co-applicant 18 years or older must submit a separate application.</strong></em></h2>
+            <hr class="line">
+            <br>
+            <label for="property-address">Property Address:</label>
+            <input name="property-adress" id="property-address" placeholder="Enter your address here (street, city, state, zip)">
+            <br>
+            <label for="move-in-date">Anticipated: Move-in Date:</label>
+            <input name="move-in-date" id="move-in-date" placeholder="Enter move-in Date">
+            <label for="monthly-rent">Monthly Rent: $</label>
+            <input name="monthly-rent" id="monthly-rent" placeholder="Enter preferred rent">
+            <label for="security-deposit">Security Deposit: $</label>
+            <input name="security-deposit" id="security-deposit" placeholder="Enter security deposit">
+            <br>
+            <p>Applicant was referred to Landlord by:</p>
+            <input type="radio" name="referred-question" value="real-estate-agent" id="real-estate-agent">
+            <label for="real-estate-agent">Real estate agent</label>
+            <input name="agent-name" id="agent-name" placeholder="Enter Real estate agent name">
+            <input name="agent-phone" id="agent-phone" placeholder="Enter agents phone #">
+            <br>
+            <input type="radio" name="referred-question" value="newspaper" id="newspaper">
+            <label for="newspaper">Newspaper</label>
+            <input type="radio" name="referred-question" value="sign" id="sign">
+            <label for="sign">Sign</label>
+            <input type="radio" name="referred-question" value="Internet" id="Internet">
+            <label for="internet">Internet</label>
+            <input type="radio" name="referred-question" value="other" id="other">
+            <label for="other">Other</label>
+            <input name="other-referral" id="other-referral" placeholder="How did you find us?">
+            <br>
+            <label for="applicants-name">Applicant's name (first, middle, last)</label>
+            <input name="applicants-name" id="applicants-name" placeholder="Your name">
+            <br>
+            <label for="applicants-name">Is there a co-applicant?</label>
+            <input  type="radio" name="applicant-question" value="yes" id="yes">
+            <label for="yes">Yes</label>
+            <input type="radio" name="applicant-question" value="no" id="no">
+            <label for="no">No</label>
+            <label style="margin-left: 4em"><em><strong>If yes, co-applicant must submit a separate application.</strong></em></label>
+            <br>
+            <label style="margin-left: 2em" for="former-last-name">Applicant's former last name (maiden or married)</label>
+            <input name="former-last-name" id="former-last-name" placeholder="Enter former last name">
+        </form>
+    </body>
+</html>
