@@ -1,3 +1,20 @@
+body {
+    background-image:url('../img/ambient-clouds.gif');
+    background-size:100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height:100%;
+    width:100%;
+    font-family: 'Chilanka', cursive;
+}
+
 h1 {
-    color: blue;
+    color: cyan;
+    text-align: center;
+    -webkit-text-stroke: .5px black;
+}
+h3 {
+    text-decoration: underline;
+    color: cyan;
+    -webkit-text-stroke: 1px black;
 }
