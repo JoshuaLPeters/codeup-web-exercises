@@ -61,3 +61,24 @@ a:hover {
 a:active {
     color: blue;
 }
+
+body {
+    width: 1920px;
+    height: 1080px;
+    color: #fff;
+    background-color: #000;
+    margin-top: 25px;
+    font-size: 21px;
+    text-align: center;
+
+    -webkit-animation: fadein 4s;
+    -moz-animation: fadein 4s;
+    -ms-animation: fadein 4s;
+    -o-animation: fadein 4s;
+    animation: fadein 4s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
