@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    text-align: center;
+}
+main {
+    margin-top: 2em;
+    background: lightgreen;
+    display: inline-grid;
+    width: 900px;
+    height: 900px;
+    grid-template-areas:
+            "blue red red red"
+            "blue red red red"
+            "yellow red red red"
+            "yellow white white white"
+            "yellow white white white"
+            "white white yellow yellow"
+            "white white yellow yellow"
+            "red blue blue blue";
+}
+main div {
+    font-size: 2em;
+    color: black;
+    background: grey;
+    border: 1px solid black; /* thin out border to 1px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.red {
+    grid-area: red;
+    background: lightcoral;
+}
+.green {
+    grid-area: green;
+    background: lightgreen;
+}
+.blue {
+    grid-area: blue;
+    background: lightblue;
+}
+.yellow {
+    grid-area: yellow;
+    background: lightyellow;
+}
+.white {
+    grid-area: white;
+    background: white;
+}
