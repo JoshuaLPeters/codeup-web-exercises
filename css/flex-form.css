@@ -59,6 +59,7 @@ body {
 .flex-form {
     /* flex items */
     display: flex;
+
 }
 .destination {
     /* bigger item */
