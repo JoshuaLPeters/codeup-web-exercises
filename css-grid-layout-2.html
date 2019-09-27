@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Grid Layout 2</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-areas:
+                    "header header header"
+                    "nav article article"
+                    "nav ads ads"
+                    "footer footer footer";
+            grid-template-rows: 80px 1fr 70px 70px;
+            grid-template-columns: 260px 1fr;
+            grid-row-gap: 10px;
+            grid-column-gap: 10px;
+            height: 100vh;
+            margin: 0;
+        }
+        #topHeader {
+            grid-area: header;
+            background-color: forestgreen;
+        }
+        #side-nav{
+            grid-area: nav;
+            background-color: forestgreen;
+        }
+        #article{
+            grid-area: article;
+            background-color: forestgreen;
+        }
+        #ads{
+            grid-area: ads;
+            background-color: forestgreen;
+        }
+        #footer{
+            grid-area: footer;
+            background-color: forestgreen;
+        }
+
+
+    </style>
+</head>
+    <body>
+        <header id="topHeader">Header</header>
+        <nav id="side-nav">Nav</nav>
+        <article id="article">Article</article>
+        <ads id="ads">Ads</ads>
+        <footer id="footer">Footer</footer>
+    </body>
+</html>
