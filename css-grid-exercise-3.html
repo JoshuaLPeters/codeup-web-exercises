@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Grid Layout 3</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-areas:
+            "one one one one"
+            "two three four four"
+            "two five five six"
+            "two seven eight nine"
+            "two ten ten ten";
+            /*grid-template-rows: 20%; (can't believe it still looks the same with no rows or columns.. GRID TEMPLATE AREA OP!*/
+            grid-row-gap: 10px;
+            grid-column-gap: 10px;
+            height: 100vh;
+            margin: 0
+
+        }
+        div {
+            background-color: gold;
+        }
+
+        #one {
+            grid-area: one;
+        }
+        #two {
+            grid-area: two;
+        }
+        #three {
+            grid-area: three;
+        }
+        #four {
+            grid-area: four;
+        }
+        #five {
+            grid-area: five;
+        }
+        #six {
+            grid-area: six;
+        }
+        #seven {
+            grid-area: seven;
+        }
+        #eight {
+            grid-area: eight;
+        }
+        #nine {
+            grid-area: nine;
+        }
+        #ten {
+            grid-area: ten;
+        }
+
+
+    </style>
+</head>
+    <body>
+        <div id="one">1</div>
+        <div id="two">2</div>
+        <div id="three">3</div>
+        <div id="four">4</div>
+        <div id="five">5</div>
+        <div id="six">6</div>
+        <div id="seven">7</div>
+        <div id="eight">8</div>
+        <div id="nine">9</div>
+        <div id="ten">10</div>
+    </body>
+</html>
