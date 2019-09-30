@@ -53,6 +53,8 @@ footer img {
     }
     h1 {
         float: left;
+        font-size: 50px;
+
     }
     .nav-links{
         display: flex;
@@ -60,24 +62,29 @@ footer img {
         float: right;
     }
     nav ul li {
-
+        display: flex;
+        background-color: white;
+        padding: 7px;
+    }
+    .header-img{
+        display: flex;
+        clear: both;
+        justify-content: center;
     }
 
-}
+    #main {
+        display: inline-block;
+        width: 58%;
+        font-size: 25px;
 
+    }
+    .sub-section{
+        float: right;
+        width: 38%;
+        font-size: 25px;
 
-
-
-
-
-
-
-
-
-
-
-
-/* screen sizes between 890px and 385px */
-@media screen and (min-width:385px) and (max-width:890px) {
-
+    }
+    footer {
+        padding-top: 250px;
+    }
 }
