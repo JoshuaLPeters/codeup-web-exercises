@@ -1,0 +1,83 @@
+/* All following CSS is for mobile until media query */
+
+.alert-info {
+    display: flex;
+    background-color: #CCFFFF;
+    text-decoration: none;
+    justify-content: center;
+    padding: 15px 90px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #CCCCCC;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+}
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    justify-self: center;
+    align-items: center;
+    padding: 0;
+}
+nav ul li {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    flex-direction: column;
+    width: calc(100% - 10px);
+    box-sizing: border-box;
+    background-color: #CCCCCC;
+    text-align: center;
+}
+footer p {
+    display: flex;
+    float: left;
+    font-size: 12px;
+}
+footer img {
+    display: flex;
+    height: 40px;
+    width: 100px;
+    float: right;
+    margin: unset;
+}
+/* CSS for Desktop */
+@media screen and (min-width:890px) {
+    .alert-info {
+        display: none;
+    }
+    h1 {
+        float: left;
+    }
+    .nav-links{
+        display: flex;
+        flex-direction: row;
+        float: right;
+    }
+    nav ul li {
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* screen sizes between 890px and 385px */
+@media screen and (min-width:385px) and (max-width:890px) {
+
+}
