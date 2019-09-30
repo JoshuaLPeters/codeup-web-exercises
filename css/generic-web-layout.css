@@ -1,0 +1,75 @@
+body {
+    display: grid;
+    grid-template-areas:
+            "top-nav top-nav top-nav"
+            "side-nav body-one ad-one"
+            "side-nav body-one ad-two"
+            "side-nav body-two ad-three"
+            "side-nav body-two ad-four"
+            "side-nav body-three ad-five"
+            "side-nav body-three ad-six"
+            "side-nav bottom-nav bottom-nav"
+            "side-nav footer-one footer-one"
+            "side-nav footer-two footer-two";
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    grid-template-columns: 15% 1fr 25%;
+    height: 100vh;
+}
+#top-nav {
+    grid-area: top-nav;
+    background-color: #848487;
+}
+#side-nav {
+    grid-area: side-nav;
+    background-color: #848487;
+}
+#body-one {
+    grid-area: body-one;
+    background-color: #848487;
+}
+#body-two {
+    grid-area: body-two;
+    background-color: #848487;
+}
+#body-three {
+    grid-area: body-three;
+    background-color: #848487;
+}
+#ad-one {
+    grid-area: ad-one;
+    background-color: #848487;
+}
+#ad-two {
+    grid-area: ad-two;
+    background-color: #848487;
+}
+#ad-three {
+    grid-area: ad-three;
+    background-color: #848487;
+}
+#ad-four {
+    grid-area: ad-four;
+    background-color: #848487;
+}
+#ad-five {
+    grid-area: ad-five;
+    background-color: #848487;
+
+}
+#ad-six {
+    grid-area: ad-six;
+    background-color: #848487;
+}
+#bottom-nav {
+    grid-area: bottom-nav;
+    background-color: #848487;
+}
+#footer-one {
+    grid-area: footer-one;
+    background-color: #848487;
+}
+#footer-two {
+    grid-area: footer-two;
+    background-color: #848487;
+}
