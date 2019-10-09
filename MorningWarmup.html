@@ -125,6 +125,11 @@
         //     alert("You've selected: " + inputString + "!");
         //
         // }
+        function helloThere(string = "stranger"){
+            return 'Hello there, ' + string + ".";
+        }
+        var promptedResponse = prompt('input string, please');
+        alert(helloThere(promptedResponse));
 
 
 
