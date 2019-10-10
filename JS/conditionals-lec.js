@@ -377,11 +377,11 @@ console.log(lightColor);
 // Visit each of these links, outline the steps required to achieve each of these demonstrations. You can write code or just write the logic steps that would achieve each output
 
 
-1) https://mdn.github.io/learning-area/javascript/building-blocks/allowance-updater.html
-
-
-2) https://mdn.github.io/learning-area/javascript/building-blocks/simple-else-if.html
-
-
-3) https://mdn.github.io/learning-area/javascript/building-blocks/simple-ternary.html
+// 1) https://mdn.github.io/learning-area/javascript/building-blocks/allowance-updater.html
+//
+//
+// 2) https://mdn.github.io/learning-area/javascript/building-blocks/simple-else-if.html
+//
+//
+// 3) https://mdn.github.io/learning-area/javascript/building-blocks/simple-ternary.html
 
