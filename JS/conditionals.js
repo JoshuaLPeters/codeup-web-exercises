@@ -16,6 +16,14 @@
  * Can you refactor your code to use functions?
  */
 
+//sudo code
+    // I need to confirm to ask the user if they want to enter a number
+    // If they don't enter a number , game over - don't show the rest of the code
+    // if they click confirm (we need a conditional) ask the user for a number (prompt)
+    // Check if this is a number or not a number
+    // If it is a number: even / odd, number +100, neg / pos
+    // If it's not a number, tell them!
+
 
 // var userDecision = confirm("Would you like to enter a number?");
 // if (userDecision === true){
@@ -192,6 +200,32 @@
  * return value.
  */
 
+// function calculateTotal(luckyNumber, totalPrice){
+//     var discountRate = 0;
+//
+//     switch(luckyNumber){
+//         case 0:
+//             discountRate = 0;
+//             break;
+//         case 1:
+//             discountRate = .1;
+//             break;
+//         case 2:
+//             discountRate = .25;
+//             break;
+//         case 3:
+//             discountRate = .35;
+//             break;
+//         case 4:
+//             discountRate = .5;
+//             break;
+//         case 5:
+//             discountRate = 1;
+//             break;
+//     }
+//
+//     return totalPrice - (totalPrice * discountRate);
+// }
 
 
 /**
@@ -201,5 +235,11 @@
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
+// // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
+//
+// var totalBillPrompt = parseFloat(prompt("What was your total bill?"));
+// var finalAmount = calculateTotal(luckyNumber, totalBillPrompt);
+// alert("Your lucky number is: " + luckyNumber + "Your total bill was: " + totalBillPrompt + "Your discount total is : " + finalAmount);
+
+// COMPLETED $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
