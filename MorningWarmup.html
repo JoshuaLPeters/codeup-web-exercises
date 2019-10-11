@@ -137,6 +137,16 @@
             return array.length;
         }
 
+        <!--  javascript function that returns the quotient of two numbers, but only when passed two numbers
+            in all other cases it should return fail-->
+
+        function quotient(x, y){
+            if(typeof x === 'number' && typeof y === 'number'){
+                return x/y;
+            } else {
+                return fail;
+            }
+        }
 
 
     </script>
