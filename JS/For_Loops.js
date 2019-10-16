@@ -13,14 +13,14 @@
 // 7 x 9 = 63
 // 7 x 10 = 70
 
-function showMultiplicationTable(x){
-    for(var i = 1; i <=10; i++){
-        if (i <=10){
-            console.log(x + " x " + i + " = " + i * x);
-        }
-    }
-}
-console.log(showMultiplicationTable(7));
+// function showMultiplicationTable(x){
+//     for(var i = 1; i <=10; i++){
+//         if (i <=10){
+//             console.log(x + " x " + i + " = " + i * x);
+//         }
+//     }
+// }
+// console.log(showMultiplicationTable(7));
 
 //complete
 
@@ -76,7 +76,16 @@ console.log(showMultiplicationTable(7));
 //         console.log(i + "" + i + ""+ i + ""+ i + "" + i +"" + i + "" + i + "" + i + "" + i);
 //     }
 // }
-// complete
+// complete Josh's hardcode method *insert upside down face here*
+// David example on how to solve YIKES THAT'S WAY BETTER THAN MINE
+
+// for (var k = 1; k < 10; k++){
+//     var str = "";
+//     for (var y = 1; y <= k; y++){
+//         str += k;
+//     }
+//     console.log(str);
+// }
 
 // Create a for loop that uses console.log to create the output shown below.
 // 100

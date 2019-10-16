@@ -54,16 +54,18 @@
 //     console.log(b);
 // }
 //SKIPS EVERYTHING UNTIL YOU HIT 10 AND THEN IT LOGS OUT CONSOLE.LOG
-// var x = parseInt(prompt("Please enter an odd number between 1 and 50."));
-// for (var i = 1; i <= 49; i += 2){
-//     if (x % 2 === 0){
-//         var x = parseInt(prompt("Please enter an odd number between 1 and 50."));
-//     }else if(i === x){
-//         console.log("Yikes! Skipping number: " + x);
-//         continue;
-//     } else if(i <= 49){
-//         console.log("Here is an odd number: " + i);
-//     }
-// }
+var x = parseInt(prompt("Please enter an odd number between 1 and 50."));
+for (var i = 1; i <= 49; i += 2){
+
+    if (x % 2 === 0){
+        var x = parseInt(prompt("Please enter an odd number between 1 and 50."));
+    }else if(i === x){
+        console.log("Yikes! Skipping number: " + x);
+        continue;
+    } else if(i <= 49){
+        console.log("Here is an odd number: " + i);
+    }
+
+}
 
 //complete
