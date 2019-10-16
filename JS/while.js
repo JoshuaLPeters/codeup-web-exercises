@@ -48,26 +48,26 @@
 //     5 cones sold...  // if there are enough cones
 //     Cannot sell you 6 cones I only have 3...  // If there are not enough cones
 //     Yay! I sold them all! // If there are no more cones
-
-do{
-
-    var allCones = Math.floor(Math.random() * 50) + 50;
-
-    //initializes the starting amount of cones we have to sell; next we have to figure out how many each costumer will buy
-
-    var randomCones = Math.floor(Math.random() * 5) + 1;
-
-    //stores a variable to generate a random number for each customer between 1 and 5
-
-    console.log("We have " + allCones + " ice cream cones ready for sale!");
-
-   //logs how many cones we randomly start with from random number generator
-
-    allCones = allCones - randomCones;
-
-    //Hopefully the right equation XD
-
-}while (allCones > 0);
+//
+// do{
+//
+//     var allCones = Math.floor(Math.random() * 50) + 50;
+//
+//     //initializes the starting amount of cones we have to sell; next we have to figure out how many each costumer will buy
+//
+//     var randomCones = Math.floor(Math.random() * 5) + 1;
+//
+//     //stores a variable to generate a random number for each customer between 1 and 5
+//
+//     console.log("We have " + allCones + " ice cream cones ready for sale!");
+//
+//    //logs how many cones we randomly start with from random number generator
+//
+//     allCones = allCones - randomCones;
+//
+//     //Hopefully the right equation XD
+//
+// }while (allCones > 0);
 
 
 
