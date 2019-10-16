@@ -13,14 +13,14 @@
 // 7 x 9 = 63
 // 7 x 10 = 70
 
-// function showMultiplicationTable(x){
-//     for(var i = 1; i <=10; i++){
-//         if (i <=10){
-//             console.log("7 x " + i + " = " + i * x);
-//         }
-//     }
-// }
-// console.log(showMultiplicationTable(7));
+function showMultiplicationTable(x){
+    for(var i = 1; i <=10; i++){
+        if (i <=10){
+            console.log(x + " x " + i + " = " + i * x);
+        }
+    }
+}
+console.log(showMultiplicationTable(7));
 
 //complete
 
