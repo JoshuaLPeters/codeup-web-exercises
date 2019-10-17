@@ -13,31 +13,31 @@
      * Create a log statement that will log the number of elements in the names
      * array.
      */
-    console.log(names.length);
+    // console.log(names.length);
     /**
      * TODO:
      * Create log statements that will print each of the names individually by
      * accessing each element's index.
      */
-    console.log(names[0]);
-    console.log(names[1]);
-    console.log(names[2]);
-    console.log(names[3]);
-    /**
-     * TODO:
-     * Write some code that uses a for loop to log every item in the names
-     * array.
-     */
-    for(var i = 0; i < names.length; i++){
-        console.log(names[i]);
-    }
+    // console.log(names[0]);
+    // console.log(names[1]);
+    // console.log(names[2]);
+    // console.log(names[3]);
+    // /**
+    //  * TODO:
+    //  * Write some code that uses a for loop to log every item in the names
+    //  * array.
+    //  */
+    // for(var i = 0; i < names.length; i++){
+    //     console.log(names[i]);
+    // }
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
-    names.forEach(function (names) {
-        console.log(names);
-    })
+    // names.forEach(function (names) {
+    //     console.log(names);
+    // })
     /**
      * TODO:
      * Create the following three functions, each will accept an array and
@@ -58,12 +58,18 @@
     function returnFirst(array){
         return array[0]
     }
+
+    console.log(returnFirst(names));
+
     // returns second item in an array
     function returnSecond(array){
         return array[1];
     }
+
+    console.log(returnSecond(names));
+
     function returnLast(array){
         return array[array.length - 1];
     }
-
+    console.log(returnLast(names));
 })();
