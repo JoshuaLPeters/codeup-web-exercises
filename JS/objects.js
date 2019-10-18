@@ -166,11 +166,18 @@
      *   `showBookInfo` function.
      */
 
-    // function createBook(){
-    //     newBook = {};
-    //     newBook.author = {};
-    //     newBook.title = prompt("Please enter the title for the book");
-    //     newBook.author.firstName = prompt("Please enter the author's first name.");
-    //     newBook.author.lastName = prompt("Please enter the author's last name.");
-    //
-    // }; Bonus melted my brain when it was already melted on a Friday ^_^b
+    // great example on how to create an object and then push this object to an array
+
+    function createBook(title, first, last){
+        var book = {};
+        book.title = title;
+        book.author = {
+            firstName: first,
+            lastName: last
+        };
+        return book;
+    }
+    books.push(createBook("Cat's Craddle", "Kirt", "V"));
+    console.log(books);
+
+
