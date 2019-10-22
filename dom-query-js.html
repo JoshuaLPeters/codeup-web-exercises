@@ -30,44 +30,30 @@
         "use strict";
         // TODO: Uncomment next line and get the main header element by id
         var mainHeader = document.getElementById('main-header').innerText="JavaScript is Cool!";
-
-
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        // mainHeading.innerHTML = "Hello Codeup!"; --LECTURE EXAMPLE
-        // mainHeader.innerHTML = "JavaScript is Cool!";
-        // console.log(mainHeader.innerHTML);
-
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById('sub-header').style.color = '#0D30D0';
-
         // TODO: Set the text color of subHeader to blue
 
         // TODO: Uncomment the next line and get all list items
-        // var listItems = document.getElementsByTagName('li');
-        // for (var i = 0; i <= listItems.length; i++) {
-        //     var dbId = listItems[i].getAttribute("data-dbid");
-        //     console.log(dbId);
-        // }
-        // var dbIdOne = document.getElementsByName('dbId="1"').style.color = '#0D30D0';
-
-
-        // var listItemOne = document.getElementsByClassName('li.odd.list-one-item').backgroundColor = '#0D30D0';
+        var listItems = document.getElementsByTagName('li');
         // TODO: Set text color on every other list item to grey
-
-
-        // li.odd.list-one-item.style.color = '0D30D0';
-
-
+       for(var i = 0; i < listItems.length; i++){
+            if (i % 2 === 0) {
+                listItems[i].style.color = "grey";
+            }
+        }
         // TODO: Set text color of li with dbid = 1 to blue
-
-
-
-        // var firstDB = document.getElementById('1');
-        // firstDB.style.color = '#0D30D0';
+        for(var i = 0; i < listItems.length; i++){
+            if (listItems[i].getAttribute('data-dbid')==1){
+                listItems[i].style.color = "blue";
+            }
+        }
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        var subParagraphs = document.getElementsByTagName('p').innerHTML = "Mission Accomplished";
-
+        var subParagraphs = document.getElementsByClassName('sub-paragraph');
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        subParagraphs[0].innerText = "Mission Accomplished!";
+
     })();
 </script>
 </body>
