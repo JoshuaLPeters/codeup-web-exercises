@@ -7,6 +7,10 @@
 <body>
 
 <h1 id="main-header">Hello World!</h1>
+<button id="btn1">Click Me!</button>
+<button id="btn2">Click Me!</button>
+<button id="btn3">Click Me!</button>
+<button id="btn4">Click Me!</button>
 <ul>
     <li data-dbid="1">Item 1</li>
     <li data-dbid="2">Item 2</li>
@@ -29,30 +33,105 @@
     (function() {
         "use strict";
         // TODO: Uncomment next line and get the main header element by id
-        var mainHeader = document.getElementById('main-header').innerText="JavaScript is Cool!";
+        // var mainHeader = document.getElementById('main-header').innerText="JavaScript is Cool!";
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
         // TODO: Uncomment the next line and get the sub header element by id
-        var subHeader = document.getElementById('sub-header').style.color = '#0D30D0';
+        // var subHeader = document.getElementById('sub-header').style.color = '#0D30D0';
         // TODO: Set the text color of subHeader to blue
 
         // TODO: Uncomment the next line and get all list items
         var listItems = document.getElementsByTagName('li');
         // TODO: Set text color on every other list item to grey
-       for(var i = 0; i < listItems.length; i++){
-            if (i % 2 === 0) {
-                listItems[i].style.color = "grey";
-            }
-        }
+       // for(var i = 0; i < listItems.length; i++){
+       //      if (i % 2 === 0) {
+       //          listItems[i].style.color = "grey";
+       //      }
+       //  }
         // TODO: Set text color of li with dbid = 1 to blue
-        for(var i = 0; i < listItems.length; i++){
-            if (listItems[i].getAttribute('data-dbid')==1){
-                listItems[i].style.color = "blue";
-            }
-        }
+        // for(var i = 0; i < listItems.length; i++){
+        //     if (listItems[i].getAttribute('data-dbid')==1){
+        //         listItems[i].style.color = "blue";
+        //     }
+        // }
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         var subParagraphs = document.getElementsByClassName('sub-paragraph');
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
         subParagraphs[0].innerText = "Mission Accomplished!";
+
+
+        // PRESS EACH BUTTON TWICE; ONCE TO TURN ON LISTENER AND ACTIVATE FUNCTION AND ONCE MORE TO TURN OFF LISTENER
+        // PRESS NEXT BUTTON TO FINISH PREVIOUS EXERCISE REQUIREMENTS FROM DOM
+
+        var listener = function (event) {
+            var mainHeader = document.getElementById('main-header').innerText="JavaScript is Cool!";
+        }
+
+        // add event listener to btn1
+        var btn1 = document.getElementById('btn1');
+        btn1.addEventListener('click', listener, false);
+
+        var remover = function (event) {
+            // remove event listener from btn1
+            btn1.removeEventListener('click', listener, false);
+            console.log('Event listener removed.');
+        }
+
+        // BUTTON TWO FOR BLUE HEADER CHANGE COLOR
+        var listenerTwo = function (event) {
+            var subHeader = document.getElementById('sub-header').style.color = '#0D30D0';
+        }
+
+        // add event listener to btn2
+        var btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click', listenerTwo, false);
+
+        var remover = function (event) {
+            // remove event listener from btn2
+            btn2.removeEventListener('click', listenerTwo, false);
+            console.log('Event listenerTwo removed.');
+        }
+
+        // BUTTON THREE FOR LIST ITEMS TURNING GREY
+        var listenerThree = function (event) {
+            for(var i = 0; i < listItems.length; i++){
+                if (i % 2 === 0) {
+                    listItems[i].style.color = "grey";
+                }
+            }
+        }
+
+        // add event listener to btn3
+        var btn3 = document.getElementById('btn3');
+        btn3.addEventListener('click', listenerThree, false);
+
+        var remover = function (event) {
+            // remove event listener from btn2
+            btn3.removeEventListener('click', listenerThree, false);
+            console.log('Event listenerThree removed.');
+        }
+
+        // BUTTON FOUR FOR FIRST LIST ITEM TURNING BLIE
+        var listenerFour = function (event) {
+            for(var i = 0; i < listItems.length; i++){
+                if (listItems[i].getAttribute('data-dbid')==1){
+                    listItems[i].style.color = "blue";
+                }
+            }
+        }
+
+        // add event listener to btn4
+        var btn4 = document.getElementById('btn4');
+        btn4.addEventListener('click', listenerFour, false);
+
+        var remover = function (event) {
+            // remove event listener from btn4
+            btn4.removeEventListener('click', listenerFour, false);
+            console.log('Event listenerFour removed.');
+        }
+
+        // PRESS EACH BUTTON TWICE; ONCE TO TURN ON LISTENER AND ACTIVATE FUNCTION AND ONCE MORE TO TURN OFF LISTENER
+        // PRESS NEXT BUTTON TO FINISH PREVIOUS EXERCISE REQUIREMENTS FROM DOM
+
 
     })();
 </script>
