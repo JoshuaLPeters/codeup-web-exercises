@@ -17,7 +17,7 @@ mapboxgl.accessToken = mapboxToken;
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/navigation-guidance-night-v4',
-    zoom: 14,
+    zoom: 13,
     center: [-98.4916, 29.4252]
 });
 
