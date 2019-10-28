@@ -88,10 +88,9 @@
         <!--     Returns true only when a positive even number                  -->
 
         function truePositiveEven(x){
-            if x % 2 === 0 && x > 0{
+            if (x % 2 === 0 && x > 0){
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
         }
@@ -125,7 +124,7 @@
         //     alert("You've selected: " + inputString + "!");
         //
         // }
-        function helloThere(string = "stranger"){
+        function helloThere(string){
             return 'Hello there, ' + string + ".";
         }
         var promptedResponse = prompt('input string, please');
@@ -149,7 +148,7 @@
         }
 
         <!--  js function that takes in an array that has a length of 5; console log each element of the array          -->
-        function arrayFive[array]{
+        function arrayFive(array){
             console.log(array);
             console.log(arrayInput[0]);
             console.log(arrayInput[1]);
@@ -174,7 +173,7 @@
             }
         }
         function countUpTo(x){
-            for(i = 1, x <= i, ++i){
+            for(i = 1; x <= i; ++i){
                 return i;
             }
         }
@@ -196,17 +195,27 @@
             personObject.age = age;
             return personObject;
         }
-        for (var i = 0; i <= 100; i++){
-            if (i%3===0 && i%5===0){
-                console.log("FizzBuzz");
-            } else if (i%5===0){
-                console.log("Fizz");
-            } else if (i%3===0){
-                console.log("Buzz");
-            } else{
-                console.log(i);
+        function fizzBuzz(num) {
+            for (var i = 0; i <= num; i++) {
+                if (i % 3 === 0 && i % 5 === 0) {
+                    console.log("FizzBuzz");
+                } else if (i % 5 === 0) {
+                    console.log("Fizz");
+                } else if (i % 3 === 0) {
+                    console.log("Buzz");
+                } else {
+                    console.log(i);
+                }
             }
-        };
+            ;
+        }
+        function returnFive(string){
+            if (string === 'five'){
+                return 5;
+            } else {
+                return false;
+            }
+        }
 
 
     </script>
