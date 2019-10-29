@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+<h3>Welcome to the game!</h3>
+<h3>ENTER the Konami Code: "↑ ↑ ↓ ↓ ← → ← → b a enter" (the return key)</h3>
+<form>
+    <input type="text" id="textfield" name="textfield" placeholder="ENTER THE CHEAT">
+</form>
+
+<script src="JS/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+    var cheatCode = ['arrowUp', 'arrowUp', 'arrowDown', 'arrowDown','arrowLeft','arrowRight','arrowLeft','arrowRight','keyB','keyA'];
+    var lives = 3;
+
+    $('#textfield').on('keypress', function(e) {
+            var $this = $(this),
+                gap = e.timeStamp - ($this.data('time') || e.timeStamp),
+                chars = $this.data('chars') || [];
+
+            if (gap > 1000) {
+                chars = [];
+            }
+
+            chars.push(e.which);
+            if (chars.join() === cheatCode) {
+                return alert("You've gained 30 extra lives!");
+            } else {
+                return alert("You have failed. Agaaaain");
+            }
+
+            $this.data('chars', chars);
+            $this.data('time', e.timeStamp);
+        });
+
+    $(document).keyup(function(event){
+
+        console.log(event.keyCode);
+    });
+</script>
+</body>
+</html>
+
+<!-- CODEUP LECTURE EXAMPLE -->
+<!--<p>Please type something into this form:</p>-->
+<!--<form>-->
+<!--    <input type="text" id="textfield" name="textfield" placeholder="Type Here"/>-->
+<!--</form>-->
+
