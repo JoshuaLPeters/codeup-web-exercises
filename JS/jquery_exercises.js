@@ -5,7 +5,7 @@
 
 
 $(document).ready(function() {
-    alert( 'The DOM has finished loading!' );
+    // alert( 'The DOM has finished loading!' );
 });
 
 $('.nav-wrapper').css('background-color', '#6EA4B3');
@@ -13,7 +13,7 @@ $('.nav-wrapper').css('background-color', '#6EA4B3');
 $('.codeup').css('border','2px solid black');
 $('.codeup').css('box-shadow','1px 2px 4px 1px');
 
-
+// LI HOVER TO RED + CHANGE TEXT TO WHITE
 $('li').hover(
     function() {
         $(this).css('background-color', 'red').css('-webkit-transition', '1.5s').css('color', 'white');
@@ -24,6 +24,13 @@ $('li').hover(
         // $(this).css('text-color', 'black').css('-webkit-transition', '2s');
     }
 );
+// CLICK CLASS AND EXPAND TO CLASS TYPE
+$('#tank-list').hide();
+
+$('#tank-toggle').click(function() {
+    $('#tank-list').slideToggle();
+});
+
 $('li').css('font-size','20px');
 $('li').css('text-align','center');
 $('ul').css('list-style', 'none');
