@@ -263,6 +263,55 @@
         };
 
 
+        var hamsters = [
+            {
+                name: "Hamtaro",
+                heightInMM: 86,
+                fur: ['orange', 'white'],
+                gender: "male",
+                dateOfBirth: "August 6"
+            } , {
+                name: "Bijou",
+                heightInMM: 75,
+                fur: ['white'],
+                gender: "female",
+                dateOfBirth: "July 10"
+            } , {
+                name: "Oxnard",
+                heightInMM: 100,
+                fur: ['grey', 'white'],
+                gender: "male",
+                dateOfBirth: "May 3"
+            } , {
+                name: "Boss",
+                heightInMM: 120,
+                fur: ['brown', 'white'],
+                gender: "male",
+                dateOfBirth: "Spetember 21"
+            } , {
+                name: "Snoozer",
+                heightInMM: 85,
+                fur: ['brown', 'white', "pink"],
+                gender: "male",
+                dateOfBirth: "January 14"
+            }
+        ];
+        <!-- return the hamsters into a new array in ascending order -->
+        // function hamsterObjects(arr){
+        //     var newArr = [];
+        //     arr.forEach(function(element, i){
+        //         newArr.push(Math.min(element.heightInMM));
+        //     });
+        //     return newArr;
+        // };
+        <!-- david's example -->
+        function hamsHamsByHeight(hamHams){
+            return hamHams.sort(function(a,b){
+                return a.heightInMM - b.heightInMM;
+            })
+        }
+
+
     </script>
     </body>
 
