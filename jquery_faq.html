@@ -5,7 +5,7 @@
     <title>jquery_faq exercise</title>
 </head>
 <body>
-<h1 id="main-header">10 FAQs about Yellowstone National Park</h1>
+<h1 id="main-header">10 FAQs about Yellowstone National Park as well as other parks too!</h1>
 <dl id="main-list">
     <dt id="list-item-one">Where do I Make Reservations to Stay in Yellowstone?<dd class="invisible" id="dd-one">Yellowstone National Park Lodges operates the nine lodges in the park. All are open from late spring through fall, but only two are open in the winter: Old Faithful Snow Lodge and Mammoth Hot Springs Hotel. Be sure to make a reservation early!</dd></dt>
     <dt id="list-item-two">Where can I see Animals?<dd class="invisible" id="dd-two">Check at visitor centers for information about recent sightings.</dd></dt>
@@ -18,9 +18,28 @@
     <dt id="list-item-nine">Can we swim in rivers and lakes?<dd class="invisible" id="dd-nine">Swimming is not recommended because most lakes and streams are dangerously cold. Firehole Canyon, near Madison Junction, has a swimming area popular in summer. Soaking in thermal features is illegal. The area known as the Boiling River, north of Mammoth Hot Springs, allows soaking in the Gardner River near thermal outflow, but not in the feature itself. Soaking is allowed during daylight hours only and at your own risk.</dd></dt>
     <dt id="list-item-ten">What is the highest peak in the park?<dd class="invisible" id="dd-ten">Eagle Peak in the southeastern part of Yellowstone is the highest at 11,358 feet.</dd></dt>
 </dl>
-
-
-
+<button id="first-button"  type="button">Last li = yellow</button>
+<h3 id="second-header">Yosemite National Park</h3>
+<ul id="second-list">
+    <li>Yosemite’s granite rock formations glow like fire at sunset.</li>
+    <li>Yosemite might be our nation’s 3rd national park, but it sparked the idea of national parks.</li>
+    <li>The park’s diverse landscape supports more than 400 species.</li>
+    <li>Yosemite is home to one of the tallest waterfalls in the world.</li>
+</ul>
+<h3 id="third-header">Grand Canyon National Park</h3>
+<ul id="third-list">
+    <li>The Grand Canyon is bigger than the state of Rhode Island.</li>
+    <li>The Grand Canyon itself can influence the weather. </li>
+    <li>Hidden caves abound in the canyon.</li>
+    <li>The Grand Canyon is one of the most visited national parks in the United States.</li>
+</ul>
+<h3 id="fourth-header">Glacier National Park</h3>
+<ul id="fourth-list">
+    <li>Glacier National Park is a part of the world’s first international peace park.</li>
+    <li>Glacier straddles the Continental Divide, allowing for extreme weather.</li>
+    <li>Going-to-the-Sun Road is a spectacular marvel and a must see on your trip to Glacier.</li>
+    <li>Evidence of human use in the area dates back over 12,000 years.</li>
+</ul>
 
 <script src="JS/jquery-2.2.4.js"></script>
 <script>
@@ -76,9 +95,41 @@
     $('#main-header').css('font-size','40px').css('box-shadow','5px 4px 5px 5px');
     $('dt').css('font-size','20px').css('font','bolder');
 
+    // traversing exercise code
+    $('#first-button').click(function(){
+        $('ul').each(function(){
+            $(this).children().last().css('background-color','yellow');
+        })
+    });
+    $('h3').click(function(){
+        $(this).each(function(){
+            $('ul').children().css('font-weight','bolder');
+        });
+    });
+    $('li').click(function(){
+        $(this).each(function(){
+            $(this).parent().children().first().css('color','blue');
+        });
+    });
+
 
 
 
 </script>
 </body>
 </html>
+
+<!--Create a button that, when clicked, makes the last li in each ul have a yellow background.-->
+
+<!--When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this.-->
+
+<!--When any list item is clicked, first li of the parent ul should have a font color of blue.-->
+
+<!--Bonus-->
+<!--Create 3 divs that each look like a picture frame. Each one should have a unique background image and a button underneath that swaps the image from the frame. Use the traversing functions of jQuery to accomplish this.-->
+
+<!--The rules are the following:-->
+
+<!--The left frame swaps to the right and takes the image from the frame in the center.-->
+<!--The center frame swaps randomly to either the left or right.-->
+<!--The right frame swaps to the left and takes the image from the frame in the center.-->
