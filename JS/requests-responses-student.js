@@ -93,15 +93,25 @@ $(document).ready(function(){
       * previously.
      */
 
-    var myBooks = $.ajax("data/books.json");
-    myBooks.done(function(data){
-        console.log(data);
-    });
+    // var myBooks = $.ajax("../data/books.json");
+    // myBooks.done(function(data){
+    //     console.log(data);
+    // }).fail(function(data){
+    //     console.log("failed to pull books");
+    // });
+    //
+    // myBooks.always(function(){
+    //     console.log("looking for books...");
+    // });
+
+
 
     /*
      * TO DO TOGETHER: What if we want to display a message if this AJAX request
      * fails?
      */
+
+
 
     /*
      * TO DO TOGETHER: How about a function that always runs whether the request
@@ -113,30 +123,99 @@ $(document).ready(function(){
      * "Something wrong with your request..." if it fails.
      */
 
+    // $.ajax("https://swapi.co/api/people").done(function(data){
+    //     console.log(data);
+    // }).fail(function(){
+    //     console.log("Your search failed");
+    // });
+
+    // var starWarsFilms = $.ajax("https://swapi.co/api/films");
+    //
+    // starWarsFilms.done(function(data){
+    //     console.log(data);
+    // }).fail(function(data, status, error){
+    //     console.log("You've been blocked");
+    // });
+
     /*
      * TO DO: Refactor your Star Wars API request to log a message that says
      * "...loading" whether the request fails or not.
      */
 
+    // $.ajax("https://swapi.co/api/people").done(function(data){
+    //     console.log(data);
+    // }).fail(function(){
+    //     console.log("Your search failed");
+    // }).always(function(){
+    //     console.log("...loading");
+    // });
+
 
     /*
      * TO DO TOGETHER: Create a Star Wars API request that queries for "A
      * New Hope" and store this request in a variable.
-     *
+
      * Take a look at the object that is being returned. Write a console log
       * that displays the director of the film.
      */
+
+    // var newHope = $.ajax("https://swapi.co/api/films", {
+    //     type: "GET",
+    //     data: {
+    //         "search": "A New Hope"
+    //     }
+    // });
+    //
+    // newHope.done(function(data){
+    //     console.log("The director of A New Hope is: " + data.results[0].director);
+    // });
 
     /*
      * TO DO: Create a new variable that makes a similar request. Search for
      * "The Force Awakens" and console log its release date.
      */
 
+    // var forceAwakens = $.ajax("https://swapi.co/api/films", {
+    //     type: "GET",
+    //     data: {
+    //         "search": "The Force Awakens"
+    //     }
+    // });
+    // forceAwakens.done(function(data){
+    //     console.log("The release date for the Force Awakens was: " + data.results[0].release_date);
+    // });
+
     /*
      * TO DO: Make a request to books.json. Return the author of "The
      * Canterbury Tales."
      */
 
+    // var myBooks = $.ajax("../data/books.json");
+    // myBooks.done(function(data){
+    //     console.log(data);
+    // }).fail(function(data){
+    //     console.log("failed to pull books");
+    // });
+    //
+    // myBooks.always(function(){
+    //     console.log("looking for books...");
+    // });
+
+    // var canterburyTales = $.ajax("../data/books.json");
+    // canterburyTales.done(function(data){
+    //     console.log(data[17].author);
+    // });
+
+    // canterburyTales.done(function(data){
+    //     var theAuthor;
+    //         for(var i = 0; i<data.length; i++) {
+    //             if (data[i].author === "Geoffrey Chaucer") {
+    //                 theAuthor = data[i].author;
+    //             }
+    //
+    //         };
+    // });
+    // for loop to find an author
 
 
     /*********************************************
@@ -151,13 +230,27 @@ $(document).ready(function(){
      * syntax to use. (: At the end of the day, what we are doing is making
      * a request to a server!
      */
+    // var forceAwakens = $.get("https://swapi.co/api/films", {
+    //         "search": "The Force Awakens"
+    // });
+    // forceAwakens.done(function(data){
+    //     console.log("The release date for the Force Awakens was: " + data.results[0].release_date);
+    // });
+    // get method; less code same function as .ajax as shown above in lecture
 
     /*
      * TO DO TOGETHER: There's some additional refactoring we can do. We can
-     * break up our callback methods on an AJAX request.
+     * break up our callback methods (done, always, and fail) on an AJAX request.
      *
      * We can also declare named functions to pass in to these methods.
      */
+
+    // function onSuccess(data){
+    //     console.log(data);
+    // }
+    // myBooks.done(onSuccess);
+
+
 
     /*********************************************
      *              AJAX and HTML
@@ -168,14 +261,74 @@ $(document).ready(function(){
      * titles to your html. You may need to create a div and assign a
      * class/id to target it.
      */
+    // this variable stores our request
+    //
+
+    var requestBookTitles = $.ajax("../data/books.json");
+    // once request is done.. do this
+    requestBookTitles.done(function(data){
+
+        console.log(data);
+        // iterate over books.json (array of objects)
+        $.each(data, function(index, book){
+            var content = "<h2>";
+            content += book.title;
+            content += "</h2>";
+            content += "<h4>";
+            content += book.author;
+            content += "</h4>";
+
+            // log each title of the books
+            console.log(book);
+            // takes json and converts to html
+            $('#main').append(book.title);
+        });
+    });
+
+    requestBookTitles.fail(function(data){
+        console.log("Something went wrong");
+    });
+
+    function generateBooks(){
+        var requestBookTitles = $.ajax("../data/books.json");
+        // once request is done.. do this
+        requestBookTitles.done(function(data){
+
+            console.log(data);
+            // iterate over books.json (array of objects)
+            $.each(data, function(index, book){
+                var content = "<h2>";
+                content += book.title;
+                content += "</h2>";
+                content += "<h4>";
+                content += book.author;
+                content += "</h4>";
+
+                // log each title of the books
+                console.log(book);
+                // takes json and converts to html
+                $('#main').append(book.title);
+            });
+        });
+
+        requestBookTitles.fail(function(data){
+            console.log("Something went wrong");
+        });
+    };
+    generateBooks();
 
     /*
      * TO DO: Add your favorite book to the end of books.json.
      */
 
     /*
-     * Bonus: Create a button the refreshes the contents of your html
+     * Bonus: Create a button that refreshes the contents of your html
      * without refreshing the page.
      */
+    $('#refresh').click(function(){
+        $('#main').html("");
+        generateBooks();
+    });
+
 
 });
