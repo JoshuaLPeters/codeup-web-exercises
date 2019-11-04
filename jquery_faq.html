@@ -5,7 +5,17 @@
     <title>jquery_faq exercise</title>
 </head>
 <body>
+<div>
+    <h1 id="newsletter-header">
+        Would you like to sign up for our newsletter?
+    </h1>
+    <span id="span-x">X</span>
+</div>
+
+<h2 id="fade-header">Would you like to register for the website?</h2>
+
 <h1 id="main-header">10 FAQs about Yellowstone National Park as well as other parks too!</h1>
+
 <dl id="main-list">
     <dt id="list-item-one">Where do I Make Reservations to Stay in Yellowstone?<dd class="invisible" id="dd-one">Yellowstone National Park Lodges operates the nine lodges in the park. All are open from late spring through fall, but only two are open in the winter: Old Faithful Snow Lodge and Mammoth Hot Springs Hotel. Be sure to make a reservation early!</dd></dt>
     <dt id="list-item-two">Where can I see Animals?<dd class="invisible" id="dd-two">Check at visitor centers for information about recent sightings.</dd></dt>
@@ -117,6 +127,21 @@
             $(this).parent().children().first().css('color','blue');
         });
     });
+
+    // JQUERY EFFECTS EXERCISE PORTION
+
+    $('#span-x').click(function(){
+        $(this).parent().hide();
+    });
+
+    $('h3').parent().children().children().hide();
+    $('h3').click(function(){
+        $(this).parent().children().children().slideToggle();
+    });
+
+    $('h2').hide();
+    $('h2').delay(8000).fadeIn();
+
 
 
 
