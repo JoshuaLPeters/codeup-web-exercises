@@ -45,5 +45,12 @@
             "outdoor"
         ],
         "price": 15
-    }
+    }, {
+        "title": "Key",
+        "quantity": 20,
+        "categories": [
+            "tool"
+        ],
+        "price": 20
+}
 ]

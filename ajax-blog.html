@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax blog</title>
+    <style>
+        body{
+            background-image: linear-gradient(
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+            ),
+            url(img/sunset-beach-cp-1920x1080.jpg);
+            width: 100%;
+            height: 100%;
+            color: white;
+            text-shadow: 0 1px 0 black;
+        }
+
+    </style>
+</head>
+<body>
+<div id="posts"></div>
+
+<script src="JS/jquery-2.2.4.js"></script>
+<script>
+    $(document).ready(function() {
+        "use strict";
+
+        var myBlog = $.ajax("data/blog.json");
+        myBlog.done(function(data){
+            console.log(data);
+            $.each(data, function (index, element) {
+                var blog = "<h1>";
+                blog += element.title;
+                blog += "</h1>";
+                blog += element.content;
+                blog += "<br>";
+                blog += "<h3>Categories</h3>";
+                element.categories.forEach(function(category){
+                    blog += "<p>" + category + " </p>";
+                });
+                blog += "<h3>Date</h3>";
+                blog += element.date;
+                $('#posts').append(blog);
+            });
+        });
+
+
+    });
+</script>
+
+</body>
+</html>

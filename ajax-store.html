@@ -21,18 +21,17 @@
 
 <button id="refresh">REFRESH</button>
 
-<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-        crossorigin="anonymous"></script>
+<script src="JS/jquery-2.2.4.js"></script>
 
 <script>
 $(document).ready(function(){
     "use strict";
     // TODO: Create an ajax GET request for /data/inventory.json
-
+function generateTool() {
     var myInventory = $.ajax("data/inventory.json");
-    myInventory.done(function(data){
+    myInventory.done(function (data) {
         console.log(data);
-        $.each(data, function(index, tool){
+        $.each(data, function (index, tool) {
             var content = tool.title;
             content += "&nbsp";
             content += "&nbsp";
@@ -55,12 +54,18 @@ $(document).ready(function(){
             $('#insertProducts').append(content);
 
         });
-    }).fail(function(data){
+    }).fail(function (data) {
         console.log("failed to pull inventory");
     });
 
-    myInventory.always(function(){
+    myInventory.always(function () {
         console.log("looking for inventory...");
+    });
+};
+generateTool();
+    $('#refresh').click(function(){
+        $('#insertProducts').html("");
+        generateTool();
     });
 
     // TODO: Take the data from inventory.json and append it to the products table
