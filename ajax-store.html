@@ -7,9 +7,9 @@
 
 <h1>My Tool Store</h1>
 
-<table id="products">
+<table id="products" border="1">
     <thead>
-        <tr>
+        <tr style="display: flex" style="justify-content: space-between" style="width: 100%">
             <th>Title</th>
             <th>Quantity</th>
             <th>Price</th>
@@ -19,21 +19,42 @@
     <tbody id="insertProducts"></tbody>
 </table>
 
-Code Integration
-Close
-<script
-        src="https://code.jquery.com/jquery-2.2.4.js"
-        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+<button id="refresh">REFRESH</button>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
         crossorigin="anonymous"></script>
 
 <script>
-(function() {
+$(document).ready(function(){
     "use strict";
     // TODO: Create an ajax GET request for /data/inventory.json
 
     var myInventory = $.ajax("data/inventory.json");
     myInventory.done(function(data){
         console.log(data);
+        $.each(data, function(index, tool){
+            var content = tool.title;
+            content += "&nbsp";
+            content += "&nbsp";
+            content += "&nbsp";
+            content += "&nbsp";
+            content += tool.quantity;
+            content += "&nbsp";
+            content += "&nbsp";
+            content += "&nbsp";
+            content += "&nbsp";
+            content += tool.price;
+            content += "&nbsp";
+            content += "&nbsp";
+            content += tool.categories;
+            content += "<br>";
+
+            // log each title of the tools
+            console.log(tool);
+            // takes json and converts to html
+            $('#insertProducts').append(content);
+
+        });
     }).fail(function(data){
         console.log("failed to pull inventory");
     });
@@ -46,7 +67,7 @@ Close
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
-})();
+});
 </script>
 
 </body>
