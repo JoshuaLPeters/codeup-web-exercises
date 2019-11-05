@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="css/weather_map.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="JS/jquery-2.2.4.js"></script>
+<!-- materialize goes here -->
+<script src="JS/mapbox-geocoder-utils.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="JS/keys.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        "use strict";
+
+        var date = new Date();
+        var timeStamp = date.getTime();
+        const weatherConditions = [
+            {
+                'condition': 'clear-day',
+                'class': 'wi wi-day-sunny'
+            },{
+                'condition': 'clear-night',
+                'class': 'wi wi-night-clear'
+            },{
+                'condition': 'rain',
+                'class': 'wi wi-rain'
+            },{
+                'condition': 'snow',
+                'class': 'wi wi-snow'
+            },{
+                'condition': 'sleet',
+                'class': 'wi wi-sleet'
+            },{
+                'condition': 'wind',
+                'class': 'wi wi-windy'
+            },{
+                'condition': 'fog',
+                'class': 'wi wi-fog'
+            },{
+                'condition': 'cloudy',
+                'class': 'wi wi-cloudy'
+            },{
+                'condition': 'partly-cloudy-day',
+                'class': 'wi wi-day-cloudy'
+            },{
+                'condition': 'partly-cloudy-night',
+                'class': 'wi wi-night-alt-cloudy'
+            }
+        ];
+
+
+        mapboxgl.accessToken = mapboxToken;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/outdoors-v10',
+            zoom: 12,
+            center: [-98.489615, 29.426827]
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //geocoding to pull location ENTER ADDRESS TO GET COORDINATES - CODE UP ADDRESS CURRENT
+        // geocode("600 Navarro St #600, San Antonio, TX 78205", mapboxToken).then(function(result) {
+        //     console.log(result);
+        //     map.setCenter(result);
+        //     map.setZoom(20);
+        // });
+        // var markerOptions = {
+        //     color: "#03D0D0",
+        // };
+
+    });
+
+</script>
+
+</body>
+</html>

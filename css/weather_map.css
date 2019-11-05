@@ -1,0 +1,37 @@
+#map {
+    /* the width and height may be set to any size */
+    width: 100%;
+    height: 700px;
+}
+
+/* weather icons */
+.wi wi-day-sunny{
+    background-image: url("/img/SVG/Sun.svg");
+}
+.wi wi-night-clear{
+    background-image: url("/img/SVG/Moon-Waning-Crescent.svg");
+}
+.wi wi-rain{
+    background-image: url("/img/SVG/Cloud-Rain.svg");
+}
+.wi wi-snow{
+    background-image: url("/img/SVG/Snowflake.svg");
+}
+.wi wi-sleet{
+    background-image: url("/img/SVG/Snowflake.svg");
+}
+.wi wi-windy{
+    background-image: url("/img/SVG/Wind.svg");
+}
+.wi wi-fog{
+    background-image: url("/img/SVG/Cloud-Fog.svg");
+}
+.wi wi-cloudy{
+    background-image: url("/img/SVG/Cloud.svg");
+}
+.wi wi-day-cloudy{
+    background-image: url("/img/SVG/Cloud-Sun.svg");
+}
+.wi wi-night-alt-cloudy{
+    background-image: url("/img/SVG/Cloud-Moon.svg");
+}
