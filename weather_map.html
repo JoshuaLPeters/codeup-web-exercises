@@ -57,13 +57,17 @@
             }
         ];
 
-
         mapboxgl.accessToken = mapboxToken;
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/outdoors-v10',
             zoom: 12,
             center: [-98.489615, 29.426827]
+        });
+
+        var darkSkyData = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936");
+        darkSkyData.done(function(data) {
+            console.log(data);
         });
 
 
