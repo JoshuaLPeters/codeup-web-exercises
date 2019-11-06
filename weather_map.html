@@ -13,7 +13,7 @@
     <div class="col s4">
         <div class="card">
             <div class="card-image">
-                <img src="img/SVG/Snowflake.svg" width="100px" height="100px">
+                <img class="first-card-image" width="100px" height="100px">
                 <span class="card-title"></span>
             </div>
             <div class="card-content">
@@ -27,7 +27,7 @@
     <div class="col s4">
         <div class="card">
             <div class="card-image">
-                <img src="img/SVG/Cloud-Drizzle-Sun.svg" width="100px" height="100px">
+                <img class="second-card-image" width="100px" height="100px">
                 <span class="card-title"></span>
             </div>
             <div class="card-content">
@@ -41,7 +41,7 @@
     <div class="col s4">
         <div class="card">
             <div class="card-image">
-                <img src="img/SVG/Cloud-Lightning.svg"  width="100px" height="100px">
+                <img class="third-card-image"  width="100px" height="100px">
                 <span class="card-title"></span>
             </div>
             <div class="card-content">
@@ -57,6 +57,34 @@
 
 <!-- MAP -->
 <div id="map"></div>
+<!-- END OF MAP -->
+
+<!-- INPUT BUTTONS FOR LATITUDE AND LONGITUDE -->
+<div class="row">
+    <form id="coordinates-form"  class="col s12">
+        <div class="row">
+            <div class="input-field col s4">
+                <input placeholder="Latitude" id="latitude" type="text" class="validate">
+                <label for="latitude">Coordinates</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="longitude" type="text" class="validate">
+                <label for="longitude">Longitude</label>
+            </div>
+            <!-- BUTTON FROM MATERIALIZE -->
+            <a form="coordinates-form" id="coordinates-button" class="waves-effect waves-light btn" class="input-field col s4"><i class="material-icons left"></i>Submit Coordinates</a>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Search by location" id="location" type="text" class="validate">
+                <label for="location">Location</label>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- END OF INPUT BUTTONS FOR LATITUDE AND LONGITUDE -->
+
 
 <script src="JS/jquery-2.2.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -111,28 +139,48 @@
             }
         ];
 
-        mapboxgl.accessToken = mapboxToken;
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/outdoors-v10',
-            zoom: 12,
-            center: [-98.489615, 29.426827]
-        });
+        $('#coordinates-button').click(function(){
+            var latValue = $('#latitude').val();
+            var longValue = $('#longitude').val();
+            // must push variables into an array to work properly
+            var centerCoordinates = [];
+            centerCoordinates.push(longValue,latValue);
+            mapboxgl.accessToken = mapboxToken;
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/outdoors-v10',
+                zoom: 12,
+                center: centerCoordinates
+                // center: [-98.489615, 29.426827]
+            });
+            // resets input form boxes back to blank after loading new center point on map
+            $('#latitude').val("");
+            $('#longitude').val("");
 
-        var darkSkyData = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936");
+
+        var darkSkyData = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + latValue + ","+ longValue);
         darkSkyData.done(function(data) {
             console.log(data.daily.data);
                 var firstCardDate = new Date(data.daily.data[0].time * 1000).toDateString();
                 var secondCardDate = new Date(data.daily.data[1].time * 1000).toDateString();
                 var thirdCardDate = new Date(data.daily.data[2].time * 1000).toDateString();
                for(var i = 0; i < 3; i++){
-
+                   var content = data.daily.data[i].summary;
+                   content += "<br>";
+                   content += "<br>";
+                   content += "High " + Math.round(data.daily.data[i].temperatureMax);
+                   content += "<br>";
+                   content += "Low " + Math.round(data.daily.data[i].temperatureMin);
+                   console.log(data.daily.data.temperatureMax);
+                   if(i === 0){
+                        $('#first-card').append(content);
+                    } else if(i === 1){
+                        $('#second-card').append(content);
+                    } else if(i === 2){
+                        $('#third-card').append(content);
+                    }
                }
-
-
-
-
-
+        });
         });
 
 
