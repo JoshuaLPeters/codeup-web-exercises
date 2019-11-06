@@ -4,14 +4,62 @@
     <meta charset="UTF-8">
     <title>Weather Map</title>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="css/weather_map.css" rel="stylesheet"/>
 </head>
 <body>
+<!-- card 1 -->
+<div class="row">
+    <div class="col s4">
+        <div class="card">
+            <div class="card-image">
+                <img src="img/SVG/Snowflake.svg" width="100px" height="100px">
+                <span class="card-title"></span>
+            </div>
+            <div class="card-content">
+                <p id="first-card"></p>
+            </div>
+            <div class="card-action">
+                <p id="first-date"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col s4">
+        <div class="card">
+            <div class="card-image">
+                <img src="img/SVG/Cloud-Drizzle-Sun.svg" width="100px" height="100px">
+                <span class="card-title"></span>
+            </div>
+            <div class="card-content">
+                <p id="second-card"></p>
+            </div>
+            <div class="card-action">
+                <p id="second-date"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col s4">
+        <div class="card">
+            <div class="card-image">
+                <img src="img/SVG/Cloud-Lightning.svg"  width="100px" height="100px">
+                <span class="card-title"></span>
+            </div>
+            <div class="card-content">
+                <p id="third-card"></p>
+            </div>
+            <div class="card-action">
+                <p id="third-date"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END OF CARDS -->
 
+<!-- MAP -->
 <div id="map"></div>
 
 <script src="JS/jquery-2.2.4.js"></script>
-<!-- materialize goes here -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="JS/mapbox-geocoder-utils.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src="JS/keys.js"></script>
@@ -20,9 +68,15 @@
 <script>
     $(document).ready(function() {
         "use strict";
+        const todaysDate = new Date().toDateString();
+        const dayTwo = new Date(getTime()+86400000).toDateString();
+        const dayThree = new Date(getTime()+172800000).toDateString();
+        console.log(todaysDate);
+        $('#first-date').append(todaysDate);
+        $('#second-date').append(dayTwo);
+        $('#third-date').append(dayThree);
 
-        var date = new Date();
-        var timeStamp = date.getTime();
+
         const weatherConditions = [
             {
                 'condition': 'clear-day',
@@ -67,7 +121,18 @@
 
         var darkSkyData = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4241,-98.4936");
         darkSkyData.done(function(data) {
-            console.log(data);
+            console.log(data.daily.data);
+                var firstCardDate = new Date(data.daily.data[0].time * 1000).toDateString();
+                var secondCardDate = new Date(data.daily.data[1].time * 1000).toDateString();
+                var thirdCardDate = new Date(data.daily.data[2].time * 1000).toDateString();
+               for(var i = 0; i < 3; i++){
+
+               }
+
+
+
+
+
         });
 
 
