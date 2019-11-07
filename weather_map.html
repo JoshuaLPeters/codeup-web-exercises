@@ -13,7 +13,7 @@
     <div class="col s4">
         <div class="card">
             <div class="card-image">
-                <img class="first-card-image" width="100px" height="100px">
+                <img  class="first-card-image weather-icon" width="100px" height="100px">
                 <span class="card-title"></span>
             </div>
             <div class="card-content">
@@ -27,7 +27,7 @@
     <div class="col s4">
         <div class="card">
             <div class="card-image">
-                <img class="second-card-image" width="100px" height="100px">
+                <img class="second-card-image weather-icon" width="100px" height="100px">
                 <span class="card-title"></span>
             </div>
             <div class="card-content">
@@ -41,7 +41,7 @@
     <div class="col s4">
         <div class="card">
             <div class="card-image">
-                <img class="third-card-image"  width="100px" height="100px">
+                <img class="third-card-image weather-icon"  width="100px" height="100px">
                 <span class="card-title"></span>
             </div>
             <div class="card-content">
@@ -72,7 +72,7 @@
                 <label for="longitude">Longitude</label>
             </div>
             <!-- BUTTON FROM MATERIALIZE -->
-            <a form="coordinates-form" id="coordinates-button" class="waves-effect waves-light btn" class="input-field col s4"><i class="material-icons left"></i>Submit Coordinates</a>
+            <a form="coordinates-form" id="coordinates-button" class="waves-effect-waves light btn" class="input-field col s4"><i class="material-icons left"></i>Submit Coordinates</a>
         </div>
 
         <div class="row">
@@ -108,34 +108,34 @@
         const weatherConditions = [
             {
                 'condition': 'clear-day',
-                'class': 'wi wi-day-sunny'
+                'class': "img/SVG/Sun.svg"
             },{
                 'condition': 'clear-night',
-                'class': 'wi wi-night-clear'
+                'class': "img/SVG/Moon-Waning-Crescent.svg"
             },{
                 'condition': 'rain',
-                'class': 'wi wi-rain'
+                'class': "img/SVG/Cloud-Rain.svg"
             },{
                 'condition': 'snow',
-                'class': 'wi wi-snow'
+                'class': "img/SVG/Snowflake.svg"
             },{
                 'condition': 'sleet',
-                'class': 'wi wi-sleet'
+                'class': "img/SVG/Snowflake.svg"
             },{
                 'condition': 'wind',
-                'class': 'wi wi-windy'
+                'class': "img/SVG/Wind.svg"
             },{
                 'condition': 'fog',
-                'class': 'wi wi-fog'
+                'class': "img/SVG/Cloud-Fog.svg"
             },{
                 'condition': 'cloudy',
-                'class': 'wi wi-cloudy'
+                'class': "img/SVG/Cloud.svg"
             },{
                 'condition': 'partly-cloudy-day',
-                'class': 'wi wi-day-cloudy'
+                'class': "img/SVG/Cloud-Sun.svg"
             },{
                 'condition': 'partly-cloudy-night',
-                'class': 'wi wi-night-alt-cloudy'
+                'class': "img/SVG/Cloud-Moon.svg"
             }
         ];
 
@@ -151,12 +151,14 @@
                 style: 'mapbox://styles/mapbox/outdoors-v10',
                 zoom: 12,
                 center: centerCoordinates
-                // center: [-98.489615, 29.426827]
             });
             // resets input form boxes back to blank after loading new center point on map
             $('#latitude').val("");
             $('#longitude').val("");
 
+            $('#first-card').html("");
+            $('#second-card').html("");
+            $('#third-card').html("");
 
         var darkSkyData = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + latValue + ","+ longValue);
         darkSkyData.done(function(data) {
@@ -165,7 +167,8 @@
                 var secondCardDate = new Date(data.daily.data[1].time * 1000).toDateString();
                 var thirdCardDate = new Date(data.daily.data[2].time * 1000).toDateString();
                for(var i = 0; i < 3; i++){
-                   var content = data.daily.data[i].summary;
+                   var content = "";
+                   content += data.daily.data[i].summary;
                    content += "<br>";
                    content += "<br>";
                    content += "High " + Math.round(data.daily.data[i].temperatureMax);
@@ -179,6 +182,17 @@
                     } else if(i === 2){
                         $('#third-card').append(content);
                     }
+                       for(var j = 0; j < weatherConditions.length; j++){
+                           console.log(data.daily.data[i].icon);
+                           if(data.daily.data[i].icon === weatherConditions[j].condition && i === 0) {
+                               $('.first-card-image').attr('src', weatherConditions[j].class);
+                           }else if(data.daily.data[i].icon === weatherConditions[j].condition && i === 1){
+                               $('.second-card-image').attr('src', weatherConditions[j].class);
+                           }else if(data.daily.data[i].icon === weatherConditions[j].condition && i === 2){
+                               $('.third-card-image').attr('src', weatherConditions[j].class);
+                           }
+                       }
+
                }
         });
         });
