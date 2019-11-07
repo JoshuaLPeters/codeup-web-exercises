@@ -74,12 +74,17 @@
             <!-- BUTTON FROM MATERIALIZE -->
             <a form="coordinates-form" id="coordinates-button" class="waves-effect-waves light btn" class="input-field col s4"><i class="material-icons left"></i>Submit Coordinates</a>
         </div>
-
+    </form>
+</div>
+<div class ="row">
+    <form id="coordinates-form-two" class="col s12">
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s8">
                 <input placeholder="Search by location" id="location" type="text" class="validate">
                 <label for="location">Location</label>
             </div>
+            <a form="coordinates-form-two" id="coordinates-button-two" class="waves-effect-waves light btn" class="input-field col s4"><i class="material-icons left"></i>Submit Location</a>
+
         </div>
     </form>
 </div>
@@ -97,8 +102,8 @@
     $(document).ready(function() {
         "use strict";
         const todaysDate = new Date().toDateString();
-        const dayTwo = new Date(getTime()+86400000).toDateString();
-        const dayThree = new Date(getTime()+172800000).toDateString();
+        const dayTwo = new Date(getTime() + 86400000).toDateString();
+        const dayThree = new Date(getTime() + 172800000).toDateString();
         console.log(todaysDate);
         $('#first-date').append(todaysDate);
         $('#second-date').append(dayTwo);
@@ -109,121 +114,158 @@
             {
                 'condition': 'clear-day',
                 'class': "img/SVG/Sun.svg"
-            },{
+            }, {
                 'condition': 'clear-night',
                 'class': "img/SVG/Moon-Waning-Crescent.svg"
-            },{
+            }, {
                 'condition': 'rain',
                 'class': "img/SVG/Cloud-Rain.svg"
-            },{
+            }, {
                 'condition': 'snow',
-                'class': "img/SVG/Snowflake.svg"
-            },{
+                'class': "img/SVG/Cloud-Snow-Alt.svg"
+            }, {
                 'condition': 'sleet',
                 'class': "img/SVG/Snowflake.svg"
-            },{
+            }, {
                 'condition': 'wind',
                 'class': "img/SVG/Wind.svg"
-            },{
+            }, {
                 'condition': 'fog',
                 'class': "img/SVG/Cloud-Fog.svg"
-            },{
+            }, {
                 'condition': 'cloudy',
                 'class': "img/SVG/Cloud.svg"
-            },{
+            }, {
                 'condition': 'partly-cloudy-day',
                 'class': "img/SVG/Cloud-Sun.svg"
-            },{
+            }, {
                 'condition': 'partly-cloudy-night',
                 'class': "img/SVG/Cloud-Moon.svg"
             }
         ];
 
-        $('#coordinates-button').click(function(){
-            var latValue = $('#latitude').val();
-            var longValue = $('#longitude').val();
-            // must push variables into an array to work properly
-            var centerCoordinates = [];
-            centerCoordinates.push(longValue,latValue);
+
+        // geocoding to pull location ENTER ADDRESS TO GET COORDINATES - CODE UP ADDRESS CURRENT
+
+        $('#coordinates-button-two').click(function () {
+            var mapTwo = [];
+            var locationValue = $('#location').val();
+            geocode(locationValue, mapboxToken).then(function (result) {
+                mapTwo = result;
+                console.log(result);
+                // map.setCenter(result);
+                // map.setZoom(20);
+            });
             mapboxgl.accessToken = mapboxToken;
             var map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/mapbox/outdoors-v10',
                 zoom: 12,
-                center: centerCoordinates
+                center: mapTwo
             });
-            // resets input form boxes back to blank after loading new center point on map
-            $('#latitude').val("");
-            $('#longitude').val("");
 
-            $('#first-card').html("");
-            $('#second-card').html("");
-            $('#third-card').html("");
-
-        var darkSkyData = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + latValue + ","+ longValue);
-        darkSkyData.done(function(data) {
-            console.log(data.daily.data);
+            var darkSkyData = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + latValue + "," + longValue);
+            darkSkyData.done(function (data) {
+                console.log(data.daily.data);
                 var firstCardDate = new Date(data.daily.data[0].time * 1000).toDateString();
                 var secondCardDate = new Date(data.daily.data[1].time * 1000).toDateString();
                 var thirdCardDate = new Date(data.daily.data[2].time * 1000).toDateString();
-               for(var i = 0; i < 3; i++){
-                   var content = "";
-                   content += data.daily.data[i].summary;
-                   content += "<br>";
-                   content += "<br>";
-                   content += "High " + Math.round(data.daily.data[i].temperatureMax);
-                   content += "<br>";
-                   content += "Low " + Math.round(data.daily.data[i].temperatureMin);
-                   console.log(data.daily.data.temperatureMax);
-                   if(i === 0){
+                for (var i = 0; i < 3; i++) {
+                    var content = "";
+                    content += data.daily.data[i].summary;
+                    content += "<br>";
+                    content += "<br>";
+                    content += "High " + Math.round(data.daily.data[i].temperatureMax);
+                    content += "<br>";
+                    content += "Low " + Math.round(data.daily.data[i].temperatureMin);
+                    console.log(data.daily.data.temperatureMax);
+                    if (i === 0) {
                         $('#first-card').append(content);
-                    } else if(i === 1){
+                    } else if (i === 1) {
                         $('#second-card').append(content);
-                    } else if(i === 2){
+                    } else if (i === 2) {
                         $('#third-card').append(content);
                     }
-                       for(var j = 0; j < weatherConditions.length; j++){
-                           console.log(data.daily.data[i].icon);
-                           if(data.daily.data[i].icon === weatherConditions[j].condition && i === 0) {
-                               $('.first-card-image').attr('src', weatherConditions[j].class);
-                           }else if(data.daily.data[i].icon === weatherConditions[j].condition && i === 1){
-                               $('.second-card-image').attr('src', weatherConditions[j].class);
-                           }else if(data.daily.data[i].icon === weatherConditions[j].condition && i === 2){
-                               $('.third-card-image').attr('src', weatherConditions[j].class);
-                           }
-                       }
+                    for (var j = 0; j < weatherConditions.length; j++) {
+                        console.log(data.daily.data[i].icon);
+                        if (data.daily.data[i].icon === weatherConditions[j].condition && i === 0) {
+                            $('.first-card-image').attr('src', weatherConditions[j].class);
+                        } else if (data.daily.data[i].icon === weatherConditions[j].condition && i === 1) {
+                            $('.second-card-image').attr('src', weatherConditions[j].class);
+                        } else if (data.daily.data[i].icon === weatherConditions[j].condition && i === 2) {
+                            $('.third-card-image').attr('src', weatherConditions[j].class);
+                        }
+                    }
 
-               }
+                }
+            });
+
+
+            $('#coordinates-button').click(function () {
+                var latValue = $('#latitude').val();
+                var longValue = $('#longitude').val();
+                // must push variables into an array to work properly
+                var centerCoordinates = [];
+                centerCoordinates.push(longValue, latValue);
+                mapboxgl.accessToken = mapboxToken;
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/outdoors-v10',
+                    zoom: 12,
+                    center: centerCoordinates
+                });
+                // resets input form boxes back to blank after loading new center point on map
+                $('#latitude').val("");
+                $('#longitude').val("");
+
+                $('#first-card').html("");
+                $('#second-card').html("");
+                $('#third-card').html("");
+
+                var darkSkyData = $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + latValue + "," + longValue);
+                darkSkyData.done(function (data) {
+                    console.log(data.daily.data);
+                    var firstCardDate = new Date(data.daily.data[0].time * 1000).toDateString();
+                    var secondCardDate = new Date(data.daily.data[1].time * 1000).toDateString();
+                    var thirdCardDate = new Date(data.daily.data[2].time * 1000).toDateString();
+                    for (var i = 0; i < 3; i++) {
+                        var content = "";
+                        content += data.daily.data[i].summary;
+                        content += "<br>";
+                        content += "<br>";
+                        content += "High " + Math.round(data.daily.data[i].temperatureMax);
+                        content += "<br>";
+                        content += "Low " + Math.round(data.daily.data[i].temperatureMin);
+                        console.log(data.daily.data.temperatureMax);
+                        if (i === 0) {
+                            $('#first-card').append(content);
+                        } else if (i === 1) {
+                            $('#second-card').append(content);
+                        } else if (i === 2) {
+                            $('#third-card').append(content);
+                        }
+                        for (var j = 0; j < weatherConditions.length; j++) {
+                            console.log(data.daily.data[i].icon);
+                            if (data.daily.data[i].icon === weatherConditions[j].condition && i === 0) {
+                                $('.first-card-image').attr('src', weatherConditions[j].class);
+                            } else if (data.daily.data[i].icon === weatherConditions[j].condition && i === 1) {
+                                $('.second-card-image').attr('src', weatherConditions[j].class);
+                            } else if (data.daily.data[i].icon === weatherConditions[j].condition && i === 2) {
+                                $('.third-card-image').attr('src', weatherConditions[j].class);
+                            }
+                        }
+
+                    }
+                });
+            });
+
+
+            // var markerOptions = {
+            //     color: "#03D0D0",
+            // };
+
         });
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //geocoding to pull location ENTER ADDRESS TO GET COORDINATES - CODE UP ADDRESS CURRENT
-        // geocode("600 Navarro St #600, San Antonio, TX 78205", mapboxToken).then(function(result) {
-        //     console.log(result);
-        //     map.setCenter(result);
-        //     map.setZoom(20);
-        // });
-        // var markerOptions = {
-        //     color: "#03D0D0",
-        // };
-
-    });
+    })
 
 </script>
 
