@@ -8,7 +8,7 @@
     <link href="css/weather_map.css" rel="stylesheet"/>
 </head>
 <body>
-    <h4 style="text-align: center" class="main-header"></h4>
+    <h4 style="text-align: center" id="main-header"></h4>
 <!-- card 1 -->
     <div class="row">
     <div class="col s4">
@@ -35,8 +35,8 @@
             <div class="card-content">
                 <p id="second-card"></p>
             </div>
-            <div class="card-action">
-                <p id="second-date"></p>
+            <div class="card-action" class="card-action-2">
+                <p id="second-date" class="second-date-class"></p>
             </div>
         </div>
     </div>
@@ -50,8 +50,8 @@
             <div class="card-content">
                 <p id="third-card"></p>
             </div>
-            <div class="card-action">
-                <p id="third-date"></p>
+            <div class="card-action" class="card-action-3">
+                <p id="third-date" class="third-date-class"></p>
             </div>
         </div>
     </div>
@@ -88,6 +88,7 @@
         $('.card-action').css('background-color','#EAEAEA');
         $('p').css('text-align','center');
         $('.blue-background').css('background-image','cover');
+
 
         const weatherConditions = [
             {
