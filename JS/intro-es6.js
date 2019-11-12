@@ -1,8 +1,8 @@
 "use strict";
 
-/*********************************************
- *              EXPONENTIATION
- ******************************************** */
+// /*********************************************
+//  *              EXPONENTIATION
+//  ******************************************** */
 // TO DO: We know that the old JS syntax uses this:
 //     >> Math.pow(a,b)
 //     Using the ES6 exponentiation Operator, refactor the following:
@@ -18,9 +18,9 @@
 // console.log(random);
 
 
-/*********************************************
- *              let and const
- ******************************************** */
+// /*********************************************
+//  *              let and const
+//  ******************************************** */
 // random = Math.floor(Math.random() * x);
 // console.log(random);
 //
@@ -45,7 +45,7 @@
 //
 // for(let i = 0; i < numbers.length; i++){
 //     console.log(i);
-}
+
 // console.log(i);
 //
 // /*********************************************
@@ -71,6 +71,13 @@
 //     'Justin',
 //     'Fer',
 // ];
+// const [a,b] = instructors;
+// console.log(a);
+// console.log(b);
+// const europaInstructors = [a,b];
+// console.log(europaInstructors);
+// const deimosInstructors = [c,d];
+// console.log(deimosInstructors);
 //
 // for(let element of instructors){
 //     if(element === 'Sophie' || element === 'David'){
@@ -83,16 +90,16 @@
 //     console.log(instructors);
 // }
 
-const myArray = [1,2,3,4,5,6,7,8];
-
-function evenNumbers(arr){
-    let newArray = [];
-    for(let number of numbers){
-        if(number % 2 === 0){
-            newArray.push(number);
-        }
-    }
-}
+// const myArray = [1,2,3,4,5,6,7,8];
+//
+// function evenNumbers(arr){
+//     let newArray = [];
+//     for(let number of numbers){
+//         if(number % 2 === 0){
+//             newArray.push(number);
+//         }
+//     }
+// }
 
 //
 //
@@ -152,15 +159,22 @@ function evenNumbers(arr){
 //
 // // TO DO: Refactor the Object below to use shorthand property assignment
 //
-const mydog = "Spike";
-const cat = "Tom";
-const mouse = "Jerry";
 
-const pals = {
-    dog: mydog,
-    cat,
-    mouse
-};
+// const pals = {
+//     dog: "Spike",
+//     cat: "Tom",
+//     mouse: "Jerry"
+// };
+// let myDog = pals.dog;
+// let myCat = pals.cat;
+// let myMouse = pals.mouse;
+//
+// const {dog, cat, mouse} = pals;
+//
+// console.log(cat);
+// console.log(mouse);
+// console.log(dog);
+
 //
 // // TO DO TOGETHER: Use Object Destructuring to refactor
 //
@@ -174,9 +188,19 @@ const pals = {
 //     color
 // };
 //
-// const carInfo = (car) => {
-//     var make = car.make;
-//     var model = car.model;
+// const yourCar = {
+//     make: "Hyundia",
+//     model: "Sonata",
+//     color: "Pink"
+// };
+//
+//
+//
+// const carInfo = ({make, model}) => {
+//     // let make = car.make;
+//     // let model = car.model;
+//     console.log("Here is your car info:");
+//     console.log(make,model);
 // };
 //
 // carInfo(myCar);
