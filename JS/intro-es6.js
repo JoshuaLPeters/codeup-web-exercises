@@ -8,10 +8,13 @@
 //     Using the ES6 exponentiation Operator, refactor the following:
 
 
-// var x = Math.pow(4,5);
+// let x = Math.pow(4,5);
+// let x = 4 ** 5;
 // console.log(x);
 //
-// let random = Math.floor(Math.random() * (Math.pow(2,3)));
+// let random = Math.floor(Math.random() * (2 ** 3));
+//
+//
 // console.log(random);
 
 
@@ -29,28 +32,33 @@
 // // TO DO TOGETHER: change the var keyword to const. What do you see in
 // // the console? Now change it to let and try again.
 //
-// // var sayHello = "Hello World!";
-// //
-// // sayHello = "Hello Deimos!";
-// //
-// // console.log(sayHello);
+// let sayHello = "Hello World!";
+//
+// sayHello = "Hello Deimos!";
+//
+// console.log(sayHello);
 //
 //
 // // TO DO: change var i into let. What are your results?
 //
-// // var numbers = [1,2,3,4,5];
-// //
-// // for(let i = 0; i < numbers.length; i++){
-// //     console.log(i);
-// // }
-// // console.log(i);
+// let numbers = [1,2,3,4,5];
+//
+// for(let i = 0; i < numbers.length; i++){
+//     console.log(i);
+}
+// console.log(i);
 //
 // /*********************************************
 //  *              for ... of
 //  ******************************************** */
 //     // TO DO TOGETHER: using a for...of loop, console log each element in
 //     // the array.
+
 // const myArray = ["it", "is", "really", "cold", "outside"];
+// for(let element of myArray){
+//     console.log(element);
+// }
+
 //
 // //TO DO: using a for ... of loop, iterate over the array of instructors. If
 // // the instructor is Sophie or David, console log the name.
@@ -64,6 +72,28 @@
 //     'Fer',
 // ];
 //
+// for(let element of instructors){
+//     if(element === 'Sophie' || element === 'David'){
+//         console.log(element);
+//     }
+// }
+//
+//
+// for(let element of instructors){
+//     console.log(instructors);
+// }
+
+const myArray = [1,2,3,4,5,6,7,8];
+
+function evenNumbers(arr){
+    let newArray = [];
+    for(let number of numbers){
+        if(number % 2 === 0){
+            newArray.push(number);
+        }
+    }
+}
+
 //
 //
 // /*********************************************
@@ -75,19 +105,46 @@
 //
 // function add(a,b){
 //     return a + b;
+// };
+//
+// const add = (a,b) => {
+//     return a + b;
+// };  // these two are essentially the same
+// const add = (a,b) => a + b;
+
+// function square(x){
+//     return x * x;
 // }
+//
+// const square = (x) => {
+//     return x * x;
+// }; // same thing; one variable can remove parens; one line can remove brackets
+// const square = x => x*x;
+
+
+
+
+
+
 //
 // // TO DO TOGETHER: refactor the following so that variable 'greeting' has a
 // // default value of 'Good Morning' and 'name' has the value of 'Deimos.
 // //
 // //      Check your work.
 //
-// const myGreeting = (greeting,name) => {
+// const myGreeting = (greeting = "Good morning",name = "Deimos") => {
 //     return `${greeting},${name}`;
 // };
 //
 // console.log(myGreeting());
 // console.log(myGreeting("Hello", "Sophie"));
+//
+// var guineaPig = "Sputnik";
+// var dog = "Bean";
+//
+// console.log("My pets are " + guineaPig + " and" + dog);
+// console.log(`My pets are ${guineaPig} and ${dog}`);
+
 //
 // /*********************************************
 //  *              Objects
@@ -95,15 +152,15 @@
 //
 // // TO DO: Refactor the Object below to use shorthand property assignment
 //
-// const mydog = "Spike";
-// const cat = "Tom";
-// const mouse = "Jerry";
-//
-// const pals = {
-//     dog: mydog,
-//     cat: cat,
-//     mouse: mouse
-// };
+const mydog = "Spike";
+const cat = "Tom";
+const mouse = "Jerry";
+
+const pals = {
+    dog: mydog,
+    cat,
+    mouse
+};
 //
 // // TO DO TOGETHER: Use Object Destructuring to refactor
 //
