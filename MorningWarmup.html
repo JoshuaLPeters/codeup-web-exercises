@@ -13,26 +13,7 @@
     </form>
 
     <script>
-        function calcSum() {
-            let num1 = document.getElementsByName("num1")[0].value;
-            let num2 = document.getElementsByName("num2")[0].value;
-            let sum = Number(num1) + Number(num2);
-            document.getElementsByName("sum")[0].value = sum;
 
-         //write function to find the area of a triganle
-         //this function takes in 3 parameters
-
-         function triangleArea(a, b, c) {
-
-         }
-
-         triangleArea(5, 6, 7){
-             var half = (a+b+c)/2;
-             var area = math.sqrt(half * (half-a)*(half-b)(half-c));
-             return area;
-            }
-        console.log(triangleArea(5, 6, 7));
-        }
     function myFunction(){
         return "hi";
     }
@@ -45,8 +26,8 @@
 
        /* formula for calculating the area for an equilateral triangle */
         equilateralTriangleArea(a){
-            var lengthSquared = (a*a)
-            var equilateralArea = [(Math.sqrt(3) / 4) * lengthSquared]
+            var lengthSquared = (a*a);
+            var equilateralArea = [(Math.sqrt(3) / 4) * lengthSquared];
             return equilateralArea;
         }
         console.log(equilateralTriangleArea(7);
@@ -54,15 +35,15 @@
 
         /* Sept 30th Take 3 strings into a function and concatinate them */
         function addWord(x , y, z) {
-        return (x" "+ y" "+ z)
+        return (x + " "+ y + " "+ z);
         }
-        console.log(str.concat(addWord(x ,y , z));
+        console.log(str.concat(addWord());
 
         <!-- Write a javascript function that takes in a string and returns a string with all the characters uppercase -->
          function upperCase(string) {
             return string.toUpperCase();
          }
-         console.log(upperCase(all caps));
+         console.log(upperCase("all caps"));
 
         <!-- function that calcs the area of a circle when provided the diameter -->
         function areaOfCircle(x){
@@ -388,14 +369,30 @@
         place knife and PB on counter,
         reach up open cupboard for plate,
         grab plate,
-        close cupboard. Open bread, grab slice1, place slice1 on plate, grab slice2, place slice2 on plate floatleft
+        close cupboard. Open bread, grab slice1, place slice1 on plate, grab slice2, place slice2 on plate float left
         close bread, open jelly, grab knife, put jelly on knife, take knife and spread jelly on slice1, be sure to
         spread all of jelly on slice one leaving knife clean, open PB, use knife to get spread PB on slice2, use tongue
-        to thoroully lick remaining PB, place knife in sink, take slice1 and slice 2 and align-center to create
+        to thoroughly lick remaining PB, place knife in sink, take slice1 and slice 2 and align-center to create
         a traditional PB&J. Grab PB, jelly, and bread, walk to cupboard, open cupboard, put away bread and PB, close
         cupboard, walk to fridge, open fridge, place jelly in fridge, close fridge. walk to plate with PB%J, grab plate,
         walk back to bed, place plate on bed, take off clothes, climb into bed without messing up your sandwich that
         took way too many steps to make. Enjoy sandwich and then take nap -->
+
+        var myArray = [1,2,3,4,5,6,7,8];
+
+        <!-- return all even numbers -->
+
+        function evenArrReturn(arr){
+            newArr = [];
+            arr.ForEach(function(num, index){
+                if(num % 2 === 0){
+                    newArr.push(num);
+                }
+            })
+            return newArr;
+        }
+
+
 
 
 
