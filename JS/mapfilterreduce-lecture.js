@@ -175,7 +175,7 @@ const colors = ['red','orange','red','blue','blue','green','red'];
 // const countColors = colors.reduce(function(accumulation, currentValue){
 //     let numberOfTimes = {};
 //     if(currentValue === currentValue){
-//         numberOfTimes += 1;
+//         numberOfTimes += 1;q
 //     }
 // },{});
 // console.log(numberOfTimes);
