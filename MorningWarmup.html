@@ -408,7 +408,11 @@
         evenPromise().then(message => {
             document.getElementsByTagName('body')[0].innerHTML +=
                 `<h1>${message}</h1>`;
+
         });
+        function returnPi(){
+                return parseFloat(Math.PI.toFixed(6));
+        }
 
 
 
